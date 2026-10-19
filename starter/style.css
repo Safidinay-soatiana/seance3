@@ -1,0 +1,90 @@
+/* =========================================================
+   TP3 — Une liste d'étudiants vivante
+   La mise en forme de base est fournie.
+   Vous ne modifiez QUE les blocs marqués TODO.
+   ========================================================= */
+
+:root {
+  --navy: #222E76; --navy-light: #283D91; --green: #76B729; --green-dark: #4C7A16;
+  --red: #C0392B; --ink: #0C101F; --muted: #6E7385; --light: #F2F4F7; --line: #D9DDE5;
+  --white: #FFFFFF; --radius: 10px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); line-height: 1.5; }
+.page-header { padding: 2rem 1.5rem 1rem; max-width: 760px; margin: 0 auto; }
+.page-header h1 { color: var(--navy); margin: 0 0 .25rem; }
+.page-header p { color: var(--muted); margin: 0; }
+main { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin: 1.5rem 0 1rem; }
+.btn { font: inherit; font-weight: 600; padding: .65rem 1.3rem; border: none; border-radius: var(--radius);
+       background: var(--navy); color: var(--white); cursor: pointer; }
+.btn:disabled { opacity: .55; cursor: wait; }
+.check { color: var(--muted); display: flex; align-items: center; gap: .4rem; }
+.compteur { margin-left: auto; color: var(--muted); font-weight: 600; }
+
+/* ---------- Liste (fournie) ---------- */
+.liste { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.ligne { display: flex; align-items: center; gap: .9rem; padding: .7rem .9rem;
+         background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
+.avatar { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+          background: var(--navy); color: var(--white); font-weight: 700; font-size: .9rem; }
+.ligne strong { display: block; color: var(--navy); }
+.ligne .option { font-size: .9rem; color: var(--muted); }
+.btn-retirer { margin-left: auto; font: inherit; font-size: .9rem; border: 1px solid var(--line); background: var(--white);
+               color: var(--red); border-radius: 8px; padding: .35rem .8rem; cursor: pointer; }
+.btn-retirer:hover { background: #FBEDEB; }
+
+/* =========================================================
+   NIVEAU 1 — SKELETON
+   ========================================================= */
+.skeleton { display: none; gap: .5rem; }
+
+/* TODO 1.5 : quand #zone a la classe .is-loading,
+   afficher .skeleton (display: grid) et masquer .liste */
+.zone { opacity: 0; transition: opacity .25s;}
+.zone.is-loading { opacity: 1;}
+/* .zone.skeleton {display: grid;}
+.zone.is-loading .liste {display: none;} */
+
+
+.sk-ligne { position: relative; overflow: hidden; display: flex; align-items: center; gap: .9rem;
+            padding: .7rem .9rem; background: var(--light); border-radius: var(--radius); }
+.sk-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--line); }
+.sk-texte { display: grid; gap: .45rem; flex: 1; }
+.sk-texte i { display: block; height: 12px; border-radius: 6px; background: var(--line); }
+.sk-texte i:first-child { width: 45%; }
+.sk-texte i:last-child { width: 30%; }
+
+/* TODO 1.6 : le reflet
+   Un pseudo-élément .sk-ligne::after, qui couvre toute la ligne (inset: 0),
+   avec un dégradé linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent).
+   Il part de translate: -100% 0 et traverse la ligne en boucle (1.2s, infini). */
+
+/* TODO 1.6 : @keyframes reflet */
+
+/* =========================================================
+   NIVEAU 2 — ARRIVÉE ET SUPPRESSION
+   ========================================================= */
+
+/* TODO 2.2 : @keyframes entrer (seulement un "from" : invisible et 12px plus bas) */
+
+/* TODO 2.2 : .ligne.is-entering
+   - joue "entrer" (0.4s, ease-out, both)
+   - délai : 60ms × le rang --i, plafonné à 10 avec min() */
+
+/* TODO 2.4 : @keyframes sortir (vers la droite de 40px, en disparaissant) */
+
+/* TODO 2.4 : .ligne.is-removing
+   - joue "sortir" (0.3s, ease-in, forwards)
+   - pointer-events: none (plus de clic pendant la sortie) */
+
+/* =========================================================
+   NIVEAU 3 — TOASTS
+   ========================================================= */
+.toasts { position: fixed; right: 1.25rem; bottom: 1.25rem; display: flex; flex-direction: column; gap: .5rem;
+          align-items: flex-end; z-index: 10; }
+.toast { background: var(--white); color: var(--ink); border-radius: var(--radius); padding: .75rem 1.1rem;
+         box-shadow: 0 8px 24px rgba(12, 16, 31, .18); border-left: 5px solid var(--navy); font-weight: 600; max-width: 320px; }
+.toast--succes { border-left-color: var(--green); }
+.toast--erreur { border-left-color: var(--red); }

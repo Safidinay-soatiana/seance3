@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TP3 — Une liste d'étudiants vivante</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Une liste d'étudiants vivante</h1>
+    <p>Animation Web — Séance 3 : piloter les animations en JavaScript</p>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <button class="btn" id="btn-charger" type="button">Charger les étudiants</button>
+      <label class="check"><input type="checkbox" id="simuler-erreur"> Simuler une erreur réseau</label>
+      <span class="compteur" id="compteur">Aucun étudiant chargé</span>
+    </div>
+
+    <!-- La classe .is-loading sera ajoutée sur #zone pendant le chargement -->
+    <div class="zone" id="zone">
+      <div class="skeleton" aria-hidden="true">
+        <div class="sk-ligne"><span class="sk-avatar"></span><span class="sk-texte"><i></i><i></i></span></div>
+        <div class="sk-ligne"><span class="sk-avatar"></span><span class="sk-texte"><i></i><i></i></span></div>
+        <div class="sk-ligne"><span class="sk-avatar"></span><span class="sk-texte"><i></i><i></i></span></div>
+        <div class="sk-ligne"><span class="sk-avatar"></span><span class="sk-texte"><i></i><i></i></span></div>
+      </div>
+      <ul class="liste" id="liste"></ul>
+    </div>
+  </main>
+
+  <!-- Les notifications (toasts) sont ajoutées ici -->
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

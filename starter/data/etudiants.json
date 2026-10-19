@@ -1,0 +1,10 @@
+[
+  { "id": 1, "nom": "Rakoto Andry", "option": "Développement" },
+  { "id": 2, "nom": "Rasoa Fanja", "option": "Web et design" },
+  { "id": 3, "nom": "Randria Mamy", "option": "Bases de données et réseaux" },
+  { "id": 4, "nom": "Rabe Hery", "option": "Développement" },
+  { "id": 5, "nom": "Ravelo Tiana", "option": "Design et communication digitale" },
+  { "id": 6, "nom": "Razafy Nirina", "option": "Web et design" },
+  { "id": 7, "nom": "Andrianina Toky", "option": "Content management et digital marketing" },
+  { "id": 8, "nom": "Rasolofo Haja", "option": "Bases de données et réseaux" }
+]
